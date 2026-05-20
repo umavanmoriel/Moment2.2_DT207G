@@ -54,7 +54,7 @@ function displayEmployeesData(data) {
         locationElement.appendChild(locationElText);
         raw.appendChild(locationElement);
         const dateofBirthElement = document.createElement('td');
-        const dateofBirthElText = document.createTextNode(employee.Dateofbirth);
+        const dateofBirthElText = document.createTextNode(employee.Dateofbirth.split('T')[0]);
         dateofBirthElement.appendChild(dateofBirthElText);
         raw.appendChild(dateofBirthElement);
         const buttonElement = document.createElement('td');

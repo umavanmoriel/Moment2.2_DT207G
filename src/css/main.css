@@ -1,7 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.about-main {
+    padding: 50px 0px;
+    flex: 1; 
+}
+
 /* Header */
 
 .header {
-    background-color: #c6e2ff;  /* Primärfärg */
+    background-color: #c6e2ff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -86,3 +106,40 @@
     color: #c6e2ff;
 }
 
+
+/* Meddelanden */
+
+#message {
+    margin-bottom: 1.5rem;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: #2c5a8c;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+}
+
+h2 {
+    color: #2c5a8c;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.4rem;
+}
