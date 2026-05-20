@@ -57,3 +57,46 @@ td button:hover {
     background-color: #c6e2ff;
     transform: scale(1.02);
 }
+
+@media (max-width: 768px) {
+    .startpage-main {
+        padding: 20px 15px;
+    }
+    
+    th, td {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    td button {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .startpage-main {
+        padding: 15px 10px;
+    }
+
+    .employeesTable {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    
+    th, td {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    td button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+        padding-left: 0.5rem;
+    }
+}

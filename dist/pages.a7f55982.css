@@ -57,4 +57,47 @@ td button:hover {
   background-color: #c6e2ff;
   transform: scale(1.02);
 }
+
+@media (width <= 768px) {
+  .startpage-main {
+    padding: 20px 15px;
+  }
+
+  th, td {
+    padding: .7rem .5rem;
+    font-size: .85rem;
+  }
+
+  td button {
+    padding: .3rem .7rem;
+    font-size: .8rem;
+  }
+}
+
+@media (width <= 480px) {
+  .startpage-main {
+    padding: 15px 10px;
+  }
+
+  .employeesTable {
+    white-space: nowrap;
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: .5rem .4rem;
+    font-size: .75rem;
+  }
+
+  td button {
+    padding: .25rem .5rem;
+    font-size: .7rem;
+  }
+
+  h1 {
+    padding-left: .5rem;
+    font-size: 1.4rem;
+  }
+}
 /*# sourceMappingURL=pages.a7f55982.css.map */

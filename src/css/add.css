@@ -48,3 +48,44 @@ input:focus {
     opacity: 0.9;
     transform: translateY(-1px);
 }
+
+@media (max-width: 768px) {
+    .add-main {
+        padding: 30px 15px;
+    }
+    
+    .add-form {
+        padding: 1.5rem;
+    }
+    
+    input {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+    
+    .delete-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-main {
+        padding: 20px 12px;
+    }
+    
+    .add-form {
+        padding: 1.2rem;
+    }
+    
+    input {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .delete-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
