@@ -85,4 +85,24 @@ function displayEmployeesData(data) {
 }
 
 
-
+async function deteleBtn(id) {
+    if (!confirm('Är du säker på att du vill ta bort denna anställd?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`http://localhost:3000/employees/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (response.ok) {
+            document.getElementById('message').innerHTML = '<p class="success">Anställd borttagen!</p>';
+            processEmployeeData();
+        } else {
+            document.getElementById('message').innerHTML = '<p class="error">Kunde inte ta bort</p>';
+        }
+    } catch (error) {
+        console.error('Delete error:', error);
+        document.getElementById('message').innerHTML = '<p class="error">Fel vid borttagning</p>';
+    }
+}
