@@ -15,7 +15,14 @@
         </nav>
     </header>
     <main class="about-main">
-
+        <h1>Webbplatsens syfte</h1>
+        <p>
+            Webbplatsen har tre undersidor: "Startsida" (index.html) visar en tabell med alla anställda som hämtas från databasen med Fetch API (GET-anrop). Varje rad har en "Radera" knapp som tar bort den anställda från databasen (DELETE-anrop). <br> <br>
+            "Lägg till anställd" (add.html) innehåller ett formulär med input fält för att fylla i information om en anställd : förnamn, efternamn, jobbtitel, plats och födelsedatum. När användaren klickar på "Spara" knapp skickas datan till databasen med Fetch API (POST-anrop) och användaren omdirigeras till startsidan. Om användaren missar att fylla i ett fält visas ett tydligt felmeddelande med information om vad som saknas.<br> <br>
+            "Om oss" (about.html) innehåller information om webbplatsens syfte, vilken databas som använts samt de slutsatser jag dragit från uppgiften.<br> <br>
+            Databas som använts är MySQL med lokal server MAMP. Databasen heter DT207G_Moment2 och innehåller tabellen employees med fälten: ID, Name, Lastname, Jobtitle, Location, Dateofbirth.<br> <br>
+            De slutsatser som jag har dragit är att jag har lärt mig att skapa en REST-webbtjänst med HTTP metoder som hanterar CRUD och jag har också förstått hur de olika metoderna fungerar tillsammans. Det var mycket roligt att skapa en separat frontend och hämta data från min databas med hjälp av Fetch och det var också lärorikt att se hur frontend och backend kopplas med varandra.
+        </p>
     </main>
     <footer class="footer">
         <ul class="footer-list">
