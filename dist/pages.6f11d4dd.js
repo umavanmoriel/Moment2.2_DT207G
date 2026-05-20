@@ -1,10 +1,8 @@
 // Kör funktionen när sidan laddas
 window.onload = init;
-
 function init() {
     processEmployeeData();
 }
-
 async function getEmployeesData() {
     try {
         const response = await fetch('http://localhost:3000/employees');
@@ -15,7 +13,6 @@ async function getEmployeesData() {
         throw error;
     }
 }
-
 async function processEmployeeData() {
     try {
         const result = await getEmployeesData();
@@ -24,84 +21,65 @@ async function processEmployeeData() {
     } catch (error) {
         console.error('Error processing data:', error);
         const empList = document.getElementById('empList');
-        if (empList) {
-            empList.innerHTML = '<tr><td colspan="7" class="error">Kunde inte hämta data!</td></tr>';
-        }
+        if (empList) empList.innerHTML = '<tr><td colspan="7" class="error">Kunde inte h\xe4mta data!</td></tr>';
     }
 }
-
 function displayEmployeesData(data) {
     const empList = document.getElementById('empList');
-    
     empList.innerHTML = '';
-    
     if (data.length === 0) {
-        empList.innerHTML = '<tr><td colspan="7" style="text-align: center;">Inga anställda finns. Lägg till en!</td></tr>';
+        empList.innerHTML = '<tr><td colspan="7" style="text-align: center;">Inga anst\xe4llda finns. L\xe4gg till en!</td></tr>';
         return;
     }
-    
-    data.forEach((employee) => {
+    data.forEach((employee)=>{
         const raw = document.createElement('tr');
-        
         const idElement = document.createElement('td');
         const idElText = document.createTextNode(employee.ID);
         idElement.appendChild(idElText);
         raw.appendChild(idElement);
-
         const nameElement = document.createElement('td');
         const nameElText = document.createTextNode(employee.Name);
         nameElement.appendChild(nameElText);
         raw.appendChild(nameElement);
-
         const lastnameElement = document.createElement('td');
         const lastnameElText = document.createTextNode(employee.Lastname);
         lastnameElement.appendChild(lastnameElText);
         raw.appendChild(lastnameElement);
-
         const jobtitleElement = document.createElement('td');
         const jobtitleElText = document.createTextNode(employee.Jobtitle);
         jobtitleElement.appendChild(jobtitleElText);
         raw.appendChild(jobtitleElement);
-
         const locationElement = document.createElement('td');
         const locationElText = document.createTextNode(employee.Location);
         locationElement.appendChild(locationElText);
         raw.appendChild(locationElement);
-
         const dateofBirthElement = document.createElement('td');
         const dateofBirthElText = document.createTextNode(employee.Dateofbirth);
         dateofBirthElement.appendChild(dateofBirthElText);
         raw.appendChild(dateofBirthElement);
-        
         const buttonElement = document.createElement('td');
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Radera';
-        deleteBtn.onclick = () => deteleBtn(employee.ID);
+        deleteBtn.onclick = ()=>deteleBtn(employee.ID);
         buttonElement.appendChild(deleteBtn);
         raw.appendChild(buttonElement);
-        
         empList.appendChild(raw);
     });
 }
-
 async function deteleBtn(id) {
-    if (!confirm('Är du säker på att du vill ta bort denna anställd?')) {
-        return;
-    }
-    
+    if (!confirm("\xc4r du s\xe4ker p\xe5 att du vill ta bort denna anst\xe4lld?")) return;
     try {
         const response = await fetch(`http://localhost:3000/employees/${id}`, {
             method: 'DELETE'
         });
-        
         if (response.ok) {
-            document.getElementById('message').innerHTML = '<p class="success">Anställd borttagen!</p>';
+            document.getElementById('message').innerHTML = '<p class="success">Anst\xe4lld borttagen!</p>';
             processEmployeeData();
-        } else {
-            document.getElementById('message').innerHTML = '<p class="error">Kunde inte ta bort</p>';
-        }
+        } else document.getElementById('message').innerHTML = '<p class="error">Kunde inte ta bort</p>';
     } catch (error) {
         console.error('Delete error:', error);
         document.getElementById('message').innerHTML = '<p class="error">Fel vid borttagning</p>';
     }
 }
+
+//# sourceMappingURL=pages.6f11d4dd.js.map
