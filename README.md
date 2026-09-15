@@ -5,7 +5,7 @@ Webbplats för att hantera anställda. Webbplatsen kommunicerar med en REST-webb
 
 # Videodemonstration
 
-Denna webbplats redovisas via video-demonstration : (Länk)[https://www.youtube.com/watch?v=lzFV2SV3oww]
+Denna webbplats redovisas via video-demonstration : [Länk](https://www.youtube.com/watch?v=lzFV2SV3oww)
 
 # DT207G Moment 2.2
 
