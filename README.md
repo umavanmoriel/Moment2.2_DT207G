@@ -5,15 +5,11 @@ Webbplats för att hantera anställda. Webbplatsen kommunicerar med en REST-webb
 
 # Videodemonstration
 
-Denna webbplats redovisas via video-demonstration : (Länk)[]
+Denna webbplats redovisas via video-demonstration : (Länk)[https://www.youtube.com/watch?v=lzFV2SV3oww]
 
-# DT207G Moment 2.2 – Frontend för arbetserfarenheter
+# DT207G Moment 2.2
 
 En webbplats som hanterar arbetserfarenheter. Webbplatsen kommunicerar med en REST-webbtjänst via Fetch API.
-
-## Videodemonstration
-
-Denna webbplats redovisas via video-demonstration: [Länk till videon]()
 
 
 ## Sidor
@@ -41,5 +37,21 @@ Denna webbplats redovisas via video-demonstration: [Länk till videon]()
 ## Installation
 
 1. Klona repot:
-   ```bash
+   ```
    git clone https://github.com/umavanmoriel/Moment2.2_DT207G.git
+2. Gå in i mappen:
+   ```
+   cd Moment2.2_DT207G
+   ```
+
+3. Installera beroenden:
+   ```
+   npm install
+   ```
+
+4. Starta utvecklingsservern:
+   ```
+   npm run start
+   ```
+
+5. Öppna webbläsaren på `http://localhost:1234`
