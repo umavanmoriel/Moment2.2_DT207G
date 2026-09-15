@@ -2,12 +2,12 @@
 window.onload = init;
 
 function init() {
-    processEmployeeData();
+    processWorkData();
 }
 
-async function getEmployeesData() {
+async function getWorkData() {
     try {
-        const response = await fetch('http://localhost:3000/employees');
+        const response = await fetch('http://localhost:3000/workexperience');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -16,87 +16,84 @@ async function getEmployeesData() {
     }
 }
 
-async function processEmployeeData() {
+async function processWorkData() {
     try {
-        const result = await getEmployeesData();
+        const result = await getWorkData();
         console.log('Received data:', result);
-        displayEmployeesData(result);
+        displayWorkData(result);
     } catch (error) {
         console.error('Error processing data:', error);
-        const empList = document.getElementById('empList');
-        if (empList) {
-            empList.innerHTML = '<tr><td colspan="7" class="error">Kunde inte hämta data!</td></tr>';
+        const workList = document.getElementById('empList');
+        if (workList) {
+            workList.innerHTML = '<tr><td colspan="8" class="error">Kunde inte hämta data!</td></tr>';
         }
     }
 }
 
-function displayEmployeesData(data) {
-    const empList = document.getElementById('empList');
-    
-    empList.innerHTML = '';
-    
+function displayWorkData(data) {
+    const workList = document.getElementById('empList');
+    workList.innerHTML = '';
+
     if (data.length === 0) {
-        empList.innerHTML = '<tr><td colspan="7" style="text-align: center;">Inga anställda finns. Lägg till en!</td></tr>';
+        workList.innerHTML = '<tr><td colspan="8" style="text-align: center;">Inga arbetserfarenheter finns. Lägg till en!</td></tr>';
         return;
     }
-    
-    data.forEach((employee) => {
+
+    data.forEach((work) => {
         const raw = document.createElement('tr');
-        
+
         const idElement = document.createElement('td');
-        const idElText = document.createTextNode(employee.ID);
-        idElement.appendChild(idElText);
+        idElement.textContent = work.id;
         raw.appendChild(idElement);
 
-        const nameElement = document.createElement('td');
-        const nameElText = document.createTextNode(employee.Name);
-        nameElement.appendChild(nameElText);
-        raw.appendChild(nameElement);
-
-        const lastnameElement = document.createElement('td');
-        const lastnameElText = document.createTextNode(employee.Lastname);
-        lastnameElement.appendChild(lastnameElText);
-        raw.appendChild(lastnameElement);
+        const companyElement = document.createElement('td');
+        companyElement.textContent = work.companyname;
+        raw.appendChild(companyElement);
 
         const jobtitleElement = document.createElement('td');
-        const jobtitleElText = document.createTextNode(employee.Jobtitle);
-        jobtitleElement.appendChild(jobtitleElText);
+        jobtitleElement.textContent = work.jobtitle;
         raw.appendChild(jobtitleElement);
 
         const locationElement = document.createElement('td');
-        const locationElText = document.createTextNode(employee.Location);
-        locationElement.appendChild(locationElText);
+        locationElement.textContent = work.location;
         raw.appendChild(locationElement);
 
-        const dateofBirthElement = document.createElement('td');
-        const dateofBirthElText = document.createTextNode(employee.Dateofbirth.split('T')[0]);
-        dateofBirthElement.appendChild(dateofBirthElText);
-        raw.appendChild(dateofBirthElement);
-        
+        const startElement = document.createElement('td');
+        startElement.textContent = work.startdate.split('T')[0];
+        raw.appendChild(startElement);
+
+        const endElement = document.createElement('td');
+        endElement.textContent = work.enddate.split('T')[0];
+        raw.appendChild(endElement);
+
+        const descElement = document.createElement('td');
+        descElement.textContent = work.description;
+        raw.appendChild(descElement);
+
         const buttonElement = document.createElement('td');
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Radera';
-        deleteBtn.onclick = () => deteleBtn(employee.ID);
+        deleteBtn.onclick = () => deleteWork(work.id);
         buttonElement.appendChild(deleteBtn);
         raw.appendChild(buttonElement);
-        
-        empList.appendChild(raw);
+
+        workList.appendChild(raw);
     });
 }
 
-async function deteleBtn(id) {
-    if (!confirm('Är du säker på att du vill ta bort denna anställd?')) {
+async function deleteWork(id) {
+    if (!confirm('Är du säker på att du vill ta bort denna arbetserfarenhet?')) {
         return;
     }
-    
+
     try {
-        const response = await fetch(`http://localhost:3000/employees/${id}`, {
+        const response = await fetch(`http://localhost:3000/workexperience/${id}`, {
             method: 'DELETE'
         });
-        
+
         if (response.ok) {
-            document.getElementById('message').innerHTML = '<p class="success">Anställd borttagen!</p>';
-            processEmployeeData();
+            document.getElementById('message').innerHTML = '<p class="success">Arbetserfarenhet borttagen!</p>';
+            processWorkData();
         } else {
             document.getElementById('message').innerHTML = '<p class="error">Kunde inte ta bort</p>';
         }
